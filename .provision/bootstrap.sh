@@ -47,7 +47,7 @@ echo "Installing Postgresql"
 echo "Installing Postgresql"
 
 sudo apt-get -y install postgresql postgresql-contrib libpq-dev
-sudo -u postgres psql -c "CREATE ROLE vagrant WITH PASSWORD 'vagrant' SUPERUSER;"
+sudo -u postgres psql -c "CREATE ROLE vagrant WITH LOGIN PASSWORD 'vagrant' SUPERUSER;"
 } &> .vagrant-log
 
 ###############################
