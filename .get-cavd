@@ -7,5 +7,4 @@ mkdir .provisions
 curl https://raw.githubusercontent.com/jayy-lmao/CAVD/master/Vagrantfile -o Vagrantfile
 curl https://raw.githubusercontent.com/jayy-lmao/CAVD/master/README.md -o README.md
 curl https://raw.githubusercontent.com/jayy-lmao/CAVD/master/install.sh -o install.sh
-curl https://raw.githubusercontent.com/jayy-lmao/CAVD/master/.provision/setup.sh -o .provisions/setup.sh
-vagrant up && vagrant halt && ./install)
+curl https://raw.githubusercontent.com/jayy-lmao/CAVD/master/.provision/setup.sh -o .provisions/setup.sh)
