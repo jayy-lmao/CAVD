@@ -2,6 +2,8 @@
 
 if [ -f ~/zshrc ]; then
     echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.zshrc
+    source ~/.zshrc
 else
     echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc
+    source ~/.bashrc
 fi

@@ -1,0 +1,9 @@
+
+#!/usr/bin/env bash
+
+mkdir CoderVagrant
+mkdir CoderVagrant/.provisions
+curl https://raw.githubusercontent.com/jayy-lmao/CAVD/master/Vagrantfile -o Vagrantfile
+curl https://raw.githubusercontent.com/jayy-lmao/CAVD/master/README.md -o README.md
+curl https://raw.githubusercontent.com/jayy-lmao/CAVD/master/.provision/setup.sh -o .provisions/setup.sh
+(cd CoderVagrant && vagrant up && vagrant halt && ./install)
