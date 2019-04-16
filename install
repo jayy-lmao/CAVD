@@ -5,14 +5,21 @@ DEFSHELL=$(grep "^$USER" /etc/passwd | sed 's/.*bin\///')
 
 if [ $DEFSHELL = 'zsh' ]; then
     echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.zshrc 
-    echo "Reopen terminal or run 
-        source ~/.zshrc
+    echo -e "\e[33mReopen terminal or run\n"
 
-        to be able to run cavdev"
+
+echo -e "\e[32msource ~/.zshrc\n"
+
+
 else
     echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc && source ~/.zshrc
-    echo "Reopen terminal or run 
-        source ~/.zshrc
+    echo -e "\e[33mReopen terminal or run\n"
 
-        to be able to run cavdev"
+echo -e "\e[32msource ~/.bashrc\n"
+
 fi
+    echo -e "\e[33mto add to bash profile, then\n"
+
+echo -e "\e[32mcavdev\n"
+
+echo -e "\e[33mto run the vagrant"
