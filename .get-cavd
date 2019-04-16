@@ -31,7 +31,7 @@ git clone git@github.com:jayy-lmao/CAVD.git
 echo -e "\e[33mSetting up Vagrant"
 
 (
-if [[ $* == *--verbose* ]];
+if [[ $* == *--verbose* ]]; then
     main    
 else
     { main } &> /dev/null  & spinner
