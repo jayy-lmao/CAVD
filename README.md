@@ -4,9 +4,9 @@
 
 Required:
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 
-- [Vagrant](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
+- [Vagrant](https://www.vagrantup.com/downloads.html.)
 
-First you will need to install virtual machine software such as **VirtualBox** or **VmWare Player**. This will be used to host a virtual Ubuntu virtual machine for developing on.
+First you will need to install virtual machine (**VirtualBox**).  This will be used to host a virtual Ubuntu virtual machine for developing on.
 
 Then install Vagrant https://www.vagrantup.com/downloads.html. This allows us to automatically customise the virtual machine so that it has all the software we need.
 
