@@ -4,7 +4,7 @@
 printf 'Setting up base dependencies\n - zsh\n - git\n - build-essential\n - libssl-dev'
 #########################################################################
 {
-printf 'Setting up base dependencies\n - zsh\n - git\n - build-essential\n - libssl-dev'
+printf 'Installing base dependencies'
 
 sudo apt-get -y install zsh git build-essential libssl-dev
 } &> .vagrant-log
