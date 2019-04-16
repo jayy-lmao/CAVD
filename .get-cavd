@@ -4,7 +4,7 @@
 spinner()
 {
     local pid=$!
-    local delay=0.05
+    local delay=0.25
     local spinstr='|/-\'
     while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
         local temp=${spinstr#?}
@@ -28,13 +28,13 @@ main() {
 
 
 git clone git@github.com:jayy-lmao/CAVD.git
-echo -e "\e[33mSetting up Vagrant"
+echo -e "\e[32mSetting up Coder Academy Vagrant for Development"
 
 if [[ $* == *--verbose* ]]
 then
     main
 else
-    main &>/dev/null
+    (main &>/dev/null) & spinner
 fi
 
 echo -e "\e[32mDone"
