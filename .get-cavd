@@ -34,7 +34,7 @@ if [[ $* == *--verbose* ]]
 then
     main
 else
-    main
+    { main } &> /dev/null & spinner
 fi
 
 echo -e "\e[32mDone"
