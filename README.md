@@ -10,6 +10,11 @@ First you will need to install virtual machine (**VirtualBox**).  This will be u
 
 Then install Vagrant https://www.vagrantup.com/downloads.html. This allows us to automatically customise the virtual machine so that it has all the software we need.
 
+### Auto Install (MacOS and Linux)
+
+`curl -sL https://raw.githubusercontent.com/jayy-lmao/CAVD/master/.get-cavd | bash -`
+
+
 Download this repository, make sure you are in the same folder as 'Vagrantfile'in terminal (MacOS/Linux) or Powershell (Windows).
 
 | Command             | Action                                                              |
