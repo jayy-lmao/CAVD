@@ -6,22 +6,51 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
+
+  required_plugins = %w( vagrant-vbguest vagrant-disksize )
+    _retry = false
+    required_plugins.each do |plugin|
+        unless Vagrant.has_plugin? plugin
+            system "vagrant plugin install #{plugin}"
+            _retry=true
+        end
+    end
+
+    if (_retry)
+        exec "vagrant " + ARGV.join(' ')
+    end
+
+
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
+  config.disksize.size = "20GB"
+
+  config.vm.define "CoderAcademyVagrant" do |cavd|
+    cavd.vm.hostname = "CAVD"
+    cavd.vm.provider :virtualbox do |vb|
+      vb.name = "CoderAcademyVagrant"
+    end
+  end
+
+  # For web serving
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   config.vm.network :forwarded_port, guest: 3001, host: 3001
   config.vm.network :forwarded_port, guest: 5000, host: 5000
-  config.vm.provider "virtualbox" do |v|
-    v.name = "cavd"
-  end
+
+  # For posgresql
+  config.vm.network :forwarded_port, guest: 5432, host: 5432
+
+  # For mongodb
+  config.vm.network :forwarded_port, guest: 27017, host: 27017
+
+  
   config.vm.provision :shell, :path => ".provision/bootstrap.sh"
-  config.vm.synced_folder "Projects/", "/Projects", create: true
-  config.vm.synced_folder "Repositories/", "/Repositories", create: true
+  config.vm.synced_folder "Shared/", "/home/vagrant/Shared", create: true
 
 
 
