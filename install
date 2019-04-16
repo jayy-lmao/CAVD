@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ -f ~/zshrc ]; then
+    echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.zshrc
+else
+    echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc
+fi

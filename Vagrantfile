@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 27017, host: 27017
 
   
-  config.vm.provision :shell, :path => ".provision/bootstrap.sh"
+  config.vm.provision :shell, :path => ".provisions/setup.sh"
   config.vm.synced_folder "Shared/", "/home/vagrant/Shared", create: true
 
 
