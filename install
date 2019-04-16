@@ -1,9 +1,18 @@
 #!/usr/bin/env bash
 
-if [ -f ~/zshrc ]; then
-    echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.zshrc
-    source ~/.zshrc
+
+DEFSHELL=$(grep "^$USER" /etc/passwd | sed 's/.*bin\///')
+
+if [ $DEFSHELL = 'zsh' ]; then
+    echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.zshrc 
+    echo "Reopen terminal or run 
+        source ~/.zshrc
+
+        to be able to run cavdev"
 else
-    echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc
-    source ~/.bashrc
+    echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc && source ~/.zshrc
+    echo "Reopen terminal or run 
+        source ~/.zshrc
+
+        to be able to run cavdev"
 fi
