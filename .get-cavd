@@ -1,9 +1,40 @@
 
 #!/usr/bin/env bash
 
-git clone git@github.com:jayy-lmao/CAVD.git
-(cd CAVD
-vagrant up
-vagrant halt
-./install)
+spinner()
+{
+    local pid=$!
+    local delay=0.05
+    local spinstr='|/-\'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
 
+
+
+main() {
+    cd CAVD
+    vagrant up
+    vagrant halt
+    ./install
+}
+
+
+
+git clone git@github.com:jayy-lmao/CAVD.git
+echo -e "\e[33mSetting up Vagrant"
+
+(
+if [[ $* == *--verbose* ]];
+    main    
+else
+    { main } &> /dev/null  & spinner
+fi)
+
+echo -e "\e[32mDone"
