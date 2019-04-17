@@ -27,17 +27,17 @@ main() {
 
 
 
-git clone git@github.com:jayy-lmao/CAVD.git
+git clone git@github.com:jayy-lmao/CAVD.git ~/.cavdev
 echo -e "\e[32mSetting up Coder Academy Vagrant for Development"
 
 if [[ $* == *--verbose* ]]
 then
     main
-    (cd CAVD
+    (cd ~/.cavdev
     ./install)
 else
     (main &>/dev/null) & spinner
-    (cd CAVD
+    (cd ~/.cavdev
     ./install)
 fi
 
