@@ -4,7 +4,8 @@
 DEFSHELL=$(grep "^$USER" /etc/passwd | sed 's/.*bin\///')
 
 if [ $DEFSHELL = 'zsh' ]; then
-    echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.zshrc 
+    echo alias '"cavdev"'="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.zshrc 
+    echo alias '"cavdev uninstall"'="\"(cd $(pwd) && ./uninstall)\"" >> ~/.zshrc 
     echo -e "\e[33mReopen terminal or run\n"
 
 
@@ -12,7 +13,8 @@ echo -e "\e[32msource ~/.zshrc\n"
 
 
 else
-    echo alias cavdev="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc && source ~/.zshrc
+    echo alias '"cavdev"'="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc && source ~/.zshrc
+    echo alias '"cavdev uninstall"'="\"(cd $(pwd) && ./uninstall)\"" >> ~/.bashrc && source ~/.zshrc
     echo -e "\e[33mReopen terminal or run\n"
 
 echo -e "\e[32msource ~/.bashrc\n"

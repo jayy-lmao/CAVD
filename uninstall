@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+
+DEFSHELL=$(grep "^$USER" /etc/passwd | sed 's/.*bin\///')
+
+if [ $DEFSHELL = 'zsh' ]; then
+    vagrant destroy
+    sed -i '/^alias cavdev/d' ~/.zshrc
+else
+    vagrant destroy
+    sed -i '/^alias cavdev/d' ~/.bashrc
+fi
+echo -e "\e[33mUninstalled"
