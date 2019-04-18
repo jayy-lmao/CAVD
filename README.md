@@ -14,6 +14,10 @@ Then install Vagrant https://www.vagrantup.com/downloads.html. This allows us to
 
 `curl -sL https://raw.githubusercontent.com/jayy-lmao/CAVD/master/.get-cavd | bash -`
 
+Once the scripts are run you will be able to use `cavdev` in your terminal.
+
+### Manual Install (MacOS, Linux, and Windows)
+
 
 Download this repository, make sure you are in the same folder as 'Vagrantfile'in terminal (MacOS/Linux) or Powershell (Windows).
 
@@ -27,6 +31,8 @@ Download this repository, make sure you are in the same folder as 'Vagrantfile'i
 If you want to be able to access from anywhere on MacOS/Linux you can run `./install` to install shortcuts.
 
 Remember you must be in the same folder as the `Vagrantfile` in order to run it.
+
+**NOTE FOR WINDOWS USERS** if you are getting a `Permission denied (publickey).` error, you need to go into `Settings > Apps & features > Manage optional features` and uninstall OpenSSH (no need to be alarmed, you can always add it back).
 
 ## Development (Students and Trainers of Coder Academy)
 
