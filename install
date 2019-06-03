@@ -13,8 +13,8 @@ echo -e "\e[32msource ~/.zshrc\n"
 
 
 else
-    echo alias '"cavdev"'="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc && source ~/.zshrc
-    echo alias '"cavdev uninstall"'="\"(cd $(pwd) && ./uninstall)\"" >> ~/.bashrc && source ~/.zshrc
+    echo alias '"cavdev"'="\"(cd $(pwd) && vagrant up && vagrant ssh; vagrant halt)\"" >> ~/.bashrc && source ~/.bashrc
+    echo alias '"cavdev uninstall"'="\"(cd $(pwd) && ./uninstall)\"" >> ~/.bashrc && source ~/.bashrc
     echo -e "\e[33mReopen terminal or run\n"
 
 echo -e "\e[32msource ~/.bashrc\n"
